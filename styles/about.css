@@ -1,0 +1,14 @@
+.about {
+  display: flex;
+  gap: 30px;
+  margin: 8px;
+  padding: 4px;
+}
+
+.about-img {
+  border-radius: 16px;
+}
+
+.about-text {
+  font-size: 24px;
+}
