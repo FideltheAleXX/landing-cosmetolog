@@ -5,15 +5,13 @@ const prevBtn = document.querySelector('.prev');
 
 let index = 1;
 const viewportWidth = 600;
-const slideFullWidth = 330 + 20; // ширина + margin (10+10)
+const slideFullWidth = 330 + 20;
 
-// Функция для вычисления сдвига, чтобы слайд был ПО ЦЕНТРУ
 function getTransformValue() {
   const offset = (viewportWidth - slideFullWidth) / 2;
   return -(index * slideFullWidth - offset);
 }
 
-// Инициализация
 track.style.transform = `translateX(${getTransformValue()}px)`;
 updateActive();
 
@@ -49,3 +47,21 @@ function updateActive() {
   slides.forEach((s) => s.classList.remove('active'));
   slides[index].classList.add('active');
 }
+
+// About Section
+const elements = document.querySelectorAll('.about');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  },
+);
+
+elements.forEach((el) => observer.observe(el));

@@ -63,11 +63,25 @@ body {
   gap: 30px;
   margin: 8px;
   padding: 4px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.about.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-img {
   border-radius: 16px;
   box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.about-title {
+  text-align: center;
 }
 
 .about-text {
