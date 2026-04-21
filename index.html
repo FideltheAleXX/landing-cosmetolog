@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Косметолог-дерматолог</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/assets/icons/favicon-32x32.png"
+      href="./assets/icons/favicon-32x32.png"
     />
   </head>
   <body>
     <section class="hero">
       <div class="hero-logo"><span>Вікторія</span> <span>Дзиганська</span></div>
       <nav class="navigation">
-        <ul class="nav-list">
+        <button class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-list" id="navList">
           <li><a class="nav-links" href="#about">About</a></li>
           <li><a class="nav-links" href="#services">Services</a></li>
           <li><a class="nav-links" href="#gallery">Gallery</a></li>
@@ -25,7 +30,7 @@
       </nav>
     </section>
     <section id="about" class="about">
-      <img class="about-img" src="/assets/images/doctor.jpg" alt="doctor" />
+      <img class="about-img" src="./assets/images/doctor.jpg" alt="doctor" />
       <div><h1 class="about-title">Про нас</h2>
       <div class="about-text">
         Доктор Вікторія Дзиганська - досвідчений косметолог-дерматолог із понад
@@ -39,27 +44,27 @@
       <p class="services-title">Наші послуги</p>
       <div class="services">
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Косметологічна чистка</div>
         </div>
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Ультразвукове очищення</div>
         </div>
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Ін’єкційні методики</div>
         </div>
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Лазерні методики</div>
         </div>
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Мезотерапія</div>
         </div>
         <div class="services-card">
-          <img src="/assets/images/card-background.jpg" alt="background" />
+          <img src="./assets/images/card-background.jpg" alt="background" />
           <div class="services-block">Трихоскопія</div>
         </div>
       </div>
@@ -71,12 +76,12 @@
 
         <div class="slider__viewport">
           <div class="slider__track">
-            <img src="/assets/images/4.jpg" alt="" class="clone" />
-            <img src="/assets/images/1.jpg" alt="" />
-            <img src="/assets/images/2.jpg" alt="" />
-            <img src="/assets/images/3.jpg" alt="" />
-            <img src="/assets/images/4.jpg" alt="" />
-            <img src="/assets/images/1.jpg" alt="" class="clone" />
+            <img src="./assets/images/4.jpg" alt="" class="clone" />
+            <img src="./assets/images/1.jpg" alt="" />
+            <img src="./assets/images/2.jpg" alt="" />
+            <img src="./assets/images/3.jpg" alt="" />
+            <img src="./assets/images/4.jpg" alt="" />
+            <img src="./assets/images/1.jpg" alt="" class="clone" />
           </div>
         </div>
 
@@ -138,11 +143,11 @@
                 d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z"
               ></path></svg
           ></a>
-          <img class="footer-img" src="/assets/icons/viber.svg" alt="Viber" />
+          <img class="footer-img" src="./assets/icons/viber.svg" alt="Viber" />
         </div>
       </div>
       <div>© 2026</div>
     </footer>
-    <script src="/js/app.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>

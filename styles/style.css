@@ -20,7 +20,7 @@ body {
   border-radius: 8px;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('/assets/images/background-img.jpg');
+    url('../assets/images/background-img.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,6 @@ body {
 
 .navigation {
   margin: 16px;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   padding: 8px;
 }
 
@@ -55,6 +54,37 @@ body {
   font-size: 24px;
   font-weight: 600;
   text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 8px;
+  z-index: 100;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* About Section */
@@ -201,11 +231,27 @@ body {
   transform: scale(1);
 }
 
-button {
+.slider button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.slider button:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .prev {
@@ -238,6 +284,338 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 901px) {
-  /* footer section */
+@media (max-width: 1200px) {
+  body {
+    max-width: 100%;
+  }
+
+  .hero {
+    flex-direction: column;
+    height: auto;
+    min-height: 60vh;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .hero-logo {
+    font-size: 24px;
+  }
+
+  .nav-list {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links {
+    font-size: 16px;
+  }
+
+  .about {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .about-text {
+    font-size: 18px;
+  }
+
+  .services {
+    justify-content: center;
+  }
+
+  .services-card {
+    width: 15rem;
+    height: 12rem;
+  }
+
+  .services-block {
+    font-size: 18px;
+  }
+
+  .slider {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .slider__track img {
+    width: 280px;
+    height: 400px;
+  }
+
+  .slider button {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-address {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 50vh;
+    padding-top: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .hero-logo {
+    font-size: 20px;
+    margin: 12px;
+  }
+
+  .navigation {
+    margin: 8px;
+    padding: 4px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    border-radius: 4px;
+    padding: 8px;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .nav-list.active {
+    max-height: 300px;
+  }
+
+  .nav-list li {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links {
+    font-size: 14px;
+    display: block;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .about {
+    padding: 0 12px;
+    margin: 4px;
+  }
+
+  .about-img {
+    max-width: 100%;
+  }
+
+  .about-title {
+    font-size: 20px;
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .services-title {
+    font-size: 18px;
+  }
+
+  .services {
+    padding: 0 8px;
+    margin: 4px;
+  }
+
+  .services-card {
+    width: 12rem;
+    height: 10rem;
+    padding: 16px;
+    margin: 6px;
+  }
+
+  .services-block {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .gallery-title {
+    font-size: 18px;
+  }
+
+  .slider {
+    max-width: 320px;
+    padding: 0 12px;
+  }
+
+  .slider__track img {
+    width: 220px;
+    height: 300px;
+    margin: 0 8px;
+  }
+
+  .slider button {
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .prev {
+    left: -4px;
+  }
+
+  .next {
+    right: -4px;
+  }
+
+  .footer {
+    padding: 12px 8px;
+  }
+
+  .footer-address {
+    font-size: 14px;
+  }
+
+  iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 250px !important;
+  }
+
+  .footer-content > div {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 45vh;
+  }
+
+  .hero-logo {
+    font-size: 18px;
+    margin: 8px;
+  }
+
+  .hero-logo span {
+    display: block;
+  }
+
+  .nav-list {
+    gap: 4px;
+  }
+
+  .nav-links {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .about {
+    padding: 0 8px;
+    gap: 12px;
+  }
+
+  .about-title {
+    font-size: 18px;
+  }
+
+  .about-text {
+    font-size: 13px;
+  }
+
+  .services-title {
+    font-size: 16px;
+  }
+
+  .services-card {
+    width: 10rem;
+    height: 8rem;
+    padding: 12px;
+    margin: 4px;
+  }
+
+  .services-block {
+    font-size: 12px;
+  }
+
+  .gallery-title {
+    font-size: 16px;
+  }
+
+  .slider {
+    max-width: 280px;
+    padding: 0 8px;
+  }
+
+  .slider__track img {
+    width: 180px;
+    height: 250px;
+    margin: 0 6px;
+  }
+
+  .slider button {
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer {
+    padding: 8px;
+  }
+
+  .footer-address {
+    font-size: 13px;
+  }
+
+  iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .footer-content > div {
+    width: 100%;
+  }
 }

@@ -1,17 +1,58 @@
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navList = document.getElementById('navList');
+
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navList.classList.toggle('active');
+  });
+
+  // Close menu when link is clicked
+  navList.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navList.classList.remove('active');
+    });
+  });
+}
+
+// close menu when click out of menu
+document.addEventListener('click', (event) => {
+  const isMenuOpen = navList.classList.contains('active');
+
+  const isClickInsideMenu = navList.contains(event.target);
+  const isClickOnBurger = menuToggle.contains(event.target);
+
+  if (isMenuOpen && !isClickInsideMenu && !isClickOnBurger) {
+    menuToggle.classList.remove('active');
+    navList.classList.remove('active');
+  }
+});
+
 const track = document.querySelector('.slider__track');
 const slides = document.querySelectorAll('.slider__track img');
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
 
 let index = 1;
-const viewportWidth = 600;
-const slideFullWidth = 330 + 20;
+
+function getSliderDimensions() {
+  const viewportWidth = document.querySelector('.slider__viewport').clientWidth;
+  const slideImg = document.querySelector('.slider__track img');
+  const slideFullWidth = slideImg.offsetWidth + 20;
+
+  return { viewportWidth, slideFullWidth };
+}
 
 function getTransformValue() {
+  const { viewportWidth, slideFullWidth } = getSliderDimensions();
   const offset = (viewportWidth - slideFullWidth) / 2;
   return -(index * slideFullWidth - offset);
 }
 
+// Initial setup
+let { viewportWidth, slideFullWidth } = getSliderDimensions();
 track.style.transform = `translateX(${getTransformValue()}px)`;
 updateActive();
 
@@ -47,6 +88,11 @@ function updateActive() {
   slides.forEach((s) => s.classList.remove('active'));
   slides[index].classList.add('active');
 }
+
+window.addEventListener('resize', () => {
+  track.style.transition = 'none';
+  track.style.transform = `translateX(${getTransformValue()}px)`;
+});
 
 // About Section
 const elements = document.querySelectorAll('.about');
